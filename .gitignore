@@ -33,3 +33,6 @@ yarn-debug.log*
 
 # Ignore osx DS_store
 .DS_Store
+
+# Ignore dotenv file
+.env
