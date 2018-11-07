@@ -1,0 +1,19 @@
+<h2>People</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Job Title</th>
+  </tr>
+  <% if @people.empty? %>
+    <tr>There are no people to display</tr>
+  <% else %>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.display_name %></td>
+        <td><%= person.email_address %></td>
+        <td><%= person.title %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
