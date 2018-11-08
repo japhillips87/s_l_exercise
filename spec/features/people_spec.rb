@@ -43,4 +43,30 @@ describe 'People page functionality', type: :feature do
       expect(page).to have_content('Marketing')
     end
   end
+
+  describe 'counting and sorting email characters', js: true do
+    it 'has a button for counting and sorting email characters' do
+      expect(page).to have_button('Show Email Character Count')
+    end
+
+    context 'when the button is clicked' do
+      let(:first_character) do
+        within '.email-char-count' do
+          first('td').text
+        end
+      end
+
+      before { click_button('Show Email Character Count') }
+
+      it 'generates the table with the correct data' do
+        expect(page).to have_css('tr th', text: 'Character')
+        expect(page).to have_css('tr th', text: 'Count')
+        expect(page).to have_css('tr td#count-o', text: 8)
+      end
+
+      it 'displays the most used character first' do
+        expect(first_character).to eq('e')
+      end
+    end
+  end
 end

@@ -1,3 +1,8 @@
+<%= javascript_pack_tag  'people' %>
+<%= javascript_tag do %>
+  var emails = <%= raw(@people.map(&:email_address)) %>
+<% end %>
+
 <h2>People</h2>
 <table>
   <tr>
@@ -17,3 +22,4 @@
     <% end %>
   <% end %>
 </table>
+<div id='people-react'></div>
