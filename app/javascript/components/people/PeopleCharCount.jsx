@@ -1,25 +1,21 @@
 import React from 'react'
 import Button from '../Button'
 import PeopleCharTable from './PeopleCharTable'
+import PropTypes from 'prop-types'
 
 class PeopleCharCount extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      emails: [],
       sortedArray: []
     }
-  }
-
-  componentWillMount() {
-    this.setState({emails: window.emails})
   }
 
   getCharCount() {
     let chars = {}
 
-    for (var i = 0; i < this.state.emails.length; i++) {
-      var email = this.state.emails[i]
+    for (var i = 0; i < this.props.emails.length; i++) {
+      var email = this.props.emails[i]
       for (var j = 0; j < email.length; j++) {
         var c = email.charAt(j)
         chars[c] === undefined ? chars[c] = 1 : chars[c] += 1
@@ -59,6 +55,10 @@ class PeopleCharCount extends React.Component {
       </div>
     )
   }
+}
+
+PeopleCharCount.propTypes = {
+  emails: PropTypes.array
 }
 
 export default PeopleCharCount

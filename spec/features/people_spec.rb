@@ -69,4 +69,19 @@ describe 'People page functionality', type: :feature do
       end
     end
   end
+
+  describe 'finding possible duplicates', js: true do
+    it 'has a button for finding possible duplicate emails' do
+      expect(page).to have_button('Find Possible Duplicates')
+    end
+
+    context 'when the button is clicked' do
+      before { click_button('Find Possible Duplicates') }
+
+      it 'finds and lists possible duplicates' do
+        expect(page).to have_content('steve.wonder@example.com and stevie.wonder@example.com are a 93.62% match.')
+        expect(page).to_not have_content('joshp@example.com and josh.smith@example.com')
+      end
+    end
+  end
 end
