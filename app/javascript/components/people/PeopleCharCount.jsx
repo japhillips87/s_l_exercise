@@ -49,7 +49,7 @@ class PeopleCharCount extends React.Component {
 
   render() {
     return (
-      <div className='email-char-count'>
+      <div className='email-char-count left-float'>
         <Button onClick={this.handleClick.bind(this)} text='Show Email Character Count' />
         <PeopleCharTable sortedArray={this.state.sortedArray}/>
       </div>

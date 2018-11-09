@@ -61,7 +61,7 @@ class PeopleDuplicates extends React.Component {
 
   render() {
     return (
-      <div className='people-duplicates'>
+      <div className='people-duplicates left-float'>
         <Button onClick={this.handleClick.bind(this)} text='Find Possible Duplicates' />
         <PeopleDuplicateList possibleDuplicates={this.state.possibleDuplicates} />
       </div>

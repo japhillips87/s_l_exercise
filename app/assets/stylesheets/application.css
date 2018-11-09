@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin-left: 25px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.left-float {
+  float: left
+}
